@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="custom-table">
+        <div class="search-div">
+            <mat-form-field class="search-form-field">
+                <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+                <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey"
+                    (click)="onSearchClear()">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
+
+        <div class="mat-elevation-z8">
+            <mat-table class="users-table" [dataSource]="users" matSort>
+
+                <!-- User Name Column -->
+                <ng-container matColumnDef="fullName">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>User Name</mat-header-cell>
+                    <mat-cell *matCellDef="let user ">{{user.fullName}}</mat-cell>
+                </ng-container>
+
+                <!-- Email Column -->
+                <ng-container matColumnDef="email">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Email Address</mat-header-cell>
+                    <mat-cell *matCellDef="let user ">{{user.email}}</mat-cell>
+                </ng-container>
+
+                <!-- Status Column-->
+                <ng-container matColumnDef="status">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
+                    <mat-cell *matCellDef="let user ">{{user.status}}</mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+            </mat-table>
+            <div *ngIf="isLoading"
+                style="display: flex; justify-content: center; align-items: center; background: white;">
+                <h3>Loading.....</h3>
+            </div>
+
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="10" showFirstLastButtons></mat-paginator>
+        </div>
+    </div>
+</div>

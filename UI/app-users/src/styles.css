@@ -1,0 +1,57 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+div.container {
+  margin: 40px;
+}
+
+/* mat-table */
+mat-footer-row mat-footer-cell {
+  justify-content: center;
+  font-style: italic;
+}
+
+/* filter controls */
+.search-div {
+  margin: 0px 10px;
+}
+
+.search-form-field {
+  width: 20%;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.search-form-field div.mat-form-field-underline {
+  display: none;
+}
+
+.search-form-field div.mat-form-field-infix {
+  border-top: 0px;
+}
+
+.search-form-field div.mat-form-field-wrapper {
+  padding-bottom: 0px;
+}
+
+.search-form-field div.mat-form-field-suffix button {
+  height: 32px;
+  width: 32px;
+}
+
+.mat-mdc-header-row {
+  background-color: #2b2ef6 !important;
+}
+
+.mat-sort-header-container {
+  display: flex;
+  color: #fff;
+  cursor: pointer;
+  align-items: center;
+  letter-spacing: normal;
+  outline: 0;
+  font-size: large;
+}
+.mat-sort-header-arrow{
+  color: #fff !important;
+}
